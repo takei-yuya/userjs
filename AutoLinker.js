@@ -48,11 +48,11 @@
 		url: /(www\.)?gahako\.com/,
 		rules:
 			[
-			{ rel: "home",     patterns: {'parentNode.href': /./ }, },
 			{ rel: "prev",     patterns: {innerHTML: /^←$/}, },
 			{ rel: "next",     patterns: {innerHTML: /^→$/}, },
-			{ rel: "index",    patterns: {innerHTML: /^●$/}, },
 			{ rel: "contents", patterns: {innerHTML: /^●$/}, },
+			{ rel: "index",    patterns: {innerHTML: /^●$/}, },
+			{ rel: "up",       patterns: {innerHTML: /^●$/}, },
 			{ rel: "first",    patterns: {innerHTML: /第一話に直接行く/}, },
 			{ rel: "last",     patterns: {'parentNode.innerText': /最新→/}, },
 			{ rel: "home",     patterns: {innerHTML: /→TOP(へ|に)(もど|戻)る/}, },
@@ -149,7 +149,6 @@
 						var pat = rule.patterns;
 						if (is_match(ancher, pat)) {
 							make_link(rel, ancher);
-							break;
 						}
 					} // for iRule in rules
 				} // for iAncher in anchers
